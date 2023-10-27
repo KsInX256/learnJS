@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <script type="module" src="js/index.js" defer></script>
+    <title>WebJS</title>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+        <div class="layers">
+
+            <div class="layersContainer">
+
+                <div class="layersItem layer-1" style="background-image: url('css/T_0004_comets.png')" ></div>
+                <div class="layersItem layer-2" style="background-image: url('css/T_0004_comets.png')"></div>
+                <div class="layersItem layer-3" style="background-image: url('css/T_0003_mediumComets.png')"></div>
+                <div class="layersItem layer-4" style="background-image: url('css/K_0005_cup.png')"></div>
+
+            </div>
+
+            <div class="overview" >
+                <h3>JS Interview questions & answers</h3>
+            </div>
+
+        </div>
+</div>
+
+ <div class="modal">
+     <div class="modalBg">
+         <div class="modalWindow">
+
+                <div class="mHeader">
+                    <span class="mTittle">Чи вірне це твердження?</span>
+                    <span class="mCloseButton">&times;</span>
+                </div>
+
+                <div class="mBody">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                </div>
+
+                <div class="mFooter">
+                    <button class="modalBtn" id="btnYes">True</button>
+                    <button class="modalBtn" id="btnNo">False</button>
+                </div>
+
+         </div>
+     </div>
+ </div>
+
+<div class="goToTop">
+        <i class="fa-solid fa-caret-up fa-beat fa-2xl"></i>
+</div>
+
+
+<div class="accordion">
+<div class="btn" >
+    <i class="fa-solid fa-lock"></i>
+    <h4 class="titleBtn">Опишіть прийом делегування подій в JS </h4>
+</div>
+
+<div class="answer answer_hidden" >
+
+
+  <p> Спливання та перехоплення дозволяють нам реалізувати один з найпотужніших шаблонів обробки подій під назвою делегування подій.Ідея в тому, що якщо у нас є багато елементів, які обробляються подібним чином, то замість
+      того, щоб призначати обробник кожному з них, ми ставимо один обробник на їхнього спільного предка.
+      У обробнику ми отримуємо event.target, щоб побачити, де насправді сталася подія та обробити її. </p>
+</div>
+</div>
+
+
+    <div class="accordion">
+
+  <div class="btn">
+      <i class="fa-solid fa-lock"></i>
+      <h4 class="titleBtn"> Опишіть як працює this в JavaScript? Наведіть приклад того, як робота з this змінилась в ES6 </h4>
+  </div>
+
+<div class="answer answer_hidden">
+      <p>this — посилання на об'єкт в контексті якого виконується функція. Іншими словами, якщо всередині функції є звернення типу this.им'я_властивості це означає, що ми звертаємося до властивості об'екту в контексті котрого ця функція виконується. Цей механізм дозволяє писати функції, які легко перевикористувати у подальшому.
+      <br>
+        Дивіться самі: <br>
+      <br>
+
+        function getName() { <br>
+        return this.name; <br>
+        } <br>
+
+        var billy = { name: ‘Billy’}; <br>
+        getName.call(billy); // Billy <br>
+      <br>
+        var john = { name: ‘John’}; <br>
+        getName.call(john); // John <br>
+      <br>
+
+        <p>Тут функція getName нічого не знає про об'єкт, в контексті якого вона буде викликана, проте чудово виконала свою роботу. Важливий момент: контекст виконання прив'язується в момент виклику функції (рядок getName.call(billy)). В ES6 була додана стрілкова функція, контекст виконання якої встановлюється не в момент виклику функції(як в прикладі, наведенному вище), а в момент виконання самої функції.</p>
+      <br>
+
+        var getName = () => {<br>
+        return this.name;<br>
+        }<br>
+
+        var billy = { name: 'Billy'};<br>
+        getName.call(billy); // undefined<br>
+      <br>
+      Тут отримуємо undefined замість імені, бо функція визначена в глобальному скоупі, а в несуворому режимі, в момент визначення стрілкової функції, її this буде вказувати на window (в браузері). У window змінна name не визначена, звідси і undefined. Явне визначення контексту виклику (.call()) зі стрілковими функціями не працює
+    </div>
+
+</div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Опишіть як працює прототипно-орієнтована модель наслідування в JS </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> В плані наслідування JavaScript працює лише з однією сутністю: об'єктами. Кожен об'єкт має внутрішнє посилання на інший об'єкт, званий його прототипом. У об'єкта-прототипа також є свій власний прототип и так далі до тих пір, доки цепочка не завершиться об'єктом, у якого властивість prototype дорівнює null. По визначенню, null не має прототипів і є завершальною ланкою в ланцюжку прототипів.
+
+
+                При спробі отримати доступ до будь-якої властивості об'єкта, властивість спочатку шукається в самому об'єкті, після цього в ланцюжку прототипів. Пошук ведеться до тих пір, доки не знайдено властивість з іменем, що збігається або доки кінець ланцюжка прототипів не буде досягнуто.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">В чому полягає різниця між значеннями null, undefined і undeclared? Як би ви реалізували перевірку на ці значення? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> null — пусте значення,
+                undefined — невизначене значення,
+                undeclared — змінна не була оголошенаа, її виклик викличе помилку, виклик typeof покаже undefined (для реалізації перевірки). Для тестової змінної «a», перевірка може бути реалізована наступним чином:
+
+                typeof a !== 'undefined' && Boolean(a)
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Що таке замикання в JS, і як/для чого його використовують? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Замикання - прийом, при якому функція має доступ до лексичної області видимості своєї функції-обгортки, яка була виконана раніше, але не може бути звільнена з пам'яті через те, що її власна область видимості ще використовується іншою функцією. Краще за все це проілюструє даний приклад:
+
+
+                function counterFn() { // функція-обгортка
+                var count = 0; // змінна в області видимості функції обгортки
+
+                return function() { // функція, яка буде використовуватись у подальшому
+                return ++count; // посилання на змінну з області видимості функції-обгортки
+                }
+                }
+
+                const counter = counterFn(); // функція-обгортка виконана
+                console.log(counter()); // 1 використовуємо вкладену функцію
+                // стан лічильника зберігається між викликами, оскільки воно зберігається в області видимості виконаної функції-обгортки
+                console.log(counter()); // 2
+                console.log(counter()); // 3 </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Які конструкції мови ви використовуєте для ітерації властивостей об'єкта та елементів массиву? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Для перебору всіх (власних та успадкованих) властивостей об'єкта використовується цикл for..in.
+                Для простого перебору елементів массиву частіше за все використовується функція Array.forEach() </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Опишіть основні відмінності між методами Array.forEach() та Array.map(), в яких випадках ви б застосували кожен з них? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Метод Array.forEach() перебирає всі элементи массива і для кожного викликає передану в forEach callback функцію. Після відпрацювання нічого не повертає, при зміні элемента массива в callback функції зміни відображуються в вихідному масиві. Array.map() перебирає всі элементи массиву і для кожного викликає передану в forEach callback функцію. Після відпрацювання повертає новий массив, рівний по довжині вихідному, який містить в собі перетворені элементи массиву. При зміні элемента массива в callback функції зміни не відображуються у вихідому массиві.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Для чого використовують анонимні функції в JS ?
+            </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Анонімними називаются функції, які не мають власного імені, як наслідок, їх не можна спочатку оголосити, а потімм викликати. Найчастіше такі функції використовують в якості callback функцій. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> В чому полягає відмінність між host objects і native objects ?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Native objects — об'єкти, визначені спецификацією ECMAScript, наприклад, Object (constructor), Date, Math.
+                Host objects — об'єкти, чия роль полягає у створенні середовища виконання для ECMAScript, наприклад, window, document, location, history. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> У чому полягає відмінність між Function Declaration та Function Expression в JavaScript?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Function Declaration (функція, оголошена у потоці коду) — классична форма оголошення функції.
+
+
+                function sum(a, b) {
+                return a + b;
+                }
+
+
+
+                Function Expression (функціональний вираз) — альтернативний синтаксис для оголошення функції.
+
+
+                var sum = function(a, b) {
+                return a + b;
+                }
+
+
+
+                По суті, вони роблять те саме, але функції, оголошені як Function Declaration можуть бути викликані раніше, ніж були оголошені у коді (hoisting), а Function Expression ні.
+
+
+                sum(2, 4);
+
+                function sum(a, b) {
+                return a + b;
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Опишіть, що робить Function.call і Function.apply. В чому полягає основна відмінність між ними?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Обидва методи використовуються для вказання контексту, при виклику функції, до якої застосовується. Відрізняються синтаксисом, apply більш гнучка.
+
+
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> За що відповідає Function.prototype.bind ? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Function.prototype.bind — створює нову функцію, яка при виклику встановлює як контекст виконання (this) надане значення, тобто відповідає за виклик функцій з іншим контекстом.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">За що відповідають і в чому полягає різниця між feature detection, feature inference та User Agent String? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Feature detection, feature inference та User Agent String – це практики визначення, чи існує певна функція web-технології у браузері.
+                Feature detection – це спосіб визначити, чи існує функція у певних браузерах.
+                Feature inference - припущення: якщо одна функція присутня (або ні), відповідно інша теж буде (або ні).
+                User Agent String - це текстовий рядок, який відправляє кожен браузер і до якого можна отримати доступ через navigator.userAgent. Цей рядок містить у собі інформацію про виконавче оточення. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Що таке підняття (hoisting) у JavaScript? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Під час компіляції коду, оголошення деяких змінних і функцій підіймаються вище за інший код у межах своєї області видимості. Цей процес і називається hoisting. Завдяки чому функція буде успішно викликана не зважаючи на те, що в коді її виклик може йти перед оголошенням.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Що таке спливання та занурення подій, у чому різниця між ними? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Сплив і занурення - це фази життєвого циклу події. Різниця полягає у моменті визначення факту настання події. Спочатку, при взаємодії користувача з елементом інтерфейсу (клік на кнопку, наприклад) подія занурюється від об'єкта window до цільового елементу (target), потім настає стадія спливання і подія спливає від target назад до window. Так, одна й та сама подія може бути перехоплена раніше чи пізніше.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Які плюси та мінуси розширення вбудованих об'єктів JavaScript? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Плюсом цього підходу є розширення базового функціоналу об'єкта. Прийом може бути застосований для визначення поліфілів. В цілому, розширення поведінки вбудованих об'єктів не вітається і є поганою практикою (monkey patching). Це порушує принцип інкапсуляції та засмічує базові об'єкти незадокументованою функціональністю. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Опишіть різницю між == і === в JS? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Обидва оператори порівняння перевіряють тотожність. Відмінність полягає в тому, що подвійне дорівнює при порівнянні значень неявно наводить (перетворює) типи значень до єдиного, так рядок "1" і цифра 1 за такого порівняння будуть рівні. Потрійне дорівнює не виконує жодних неявних трансформацій, а отже вихідні типи матимуть значення. Таким чином рядок не буде дорівнювати числу і не важливо, що в обох операндах фігурує одиниця. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Опишіть політику крос-доменних обмежень (same-origin policy) у тих JS? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p>Same-origin policy (політика однакового джерела) - визначає як сайт (документ/скрипт), завантажений з одного джерела, може взаємодіяти в браузері з ресурсом (файлом, скриптом, об'єктом), з іншого джерела.
+                Приклад:
+                Якщо скрипт нашого сайту робить простий запит (GET) до чужого сервера й отримує у відповідь файл, при цьому у відповіді відсутній заголовок Access-Control-Allow-Origin або у значенні цього заголовка відсутній наш домен, браузер заборонить доступ до цього файлу (не дасть переглянути вміст відповіді) зі скриптів нашого сайту.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Що таке Тернарний оператор? Про що говорить слово “тернарний” ? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p>  Тернарний оператор - це умовний оператор, що має форму запису: умова ? істинний вираз : хибний вираз. Тернарним його називають тому, що він має три операнди.</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Що таке strict режим у JS? У чому його переваги/недоліки?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Strict (суворий режим) — особливий режим роботи компілятора, що включає нові можливості та деякі поліпшення обумовлені стандартом ECMAScript 5, при якому змінюється поведінка деяких функцій. Вмикається директивою use strict. Більшість сучасних браузерів підтримують strict режим, однак в деяких не повністю. Також не варто забувати про старіші версії (IE нижче версії 10). Суворий режим змінює семантику, що призводить до похибок та помилок. Потрібно підходити дуже уважно до використання суворого режиму та проводити тести для перевірки працездатності коду як у браузерах, які підтримують суворий режим, так і тих, що не підтримують.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn">
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Які основні переваги / недоліки написання коду мовою, що компілюється в JavaScript?
+            </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> TypeScript - одна з мов, яка дозволяє писати код, що компілюється в JS.
+                Серед його переваг варто зазначити:
+
+                Підтримка популярних IDE: Sublime Text, Visual Studio Code, WebStorm, Eclipse.
+                Реалізує багато принципів ООП: модифікатори доступу, успадкування, інкапсуляцію та поліморфізм.
+                Дозволяє швидше та простіше писати складні рішення, які легше тестувати та розвивати завдяки підтримці ООП та суворій типізації.
+                Існує система для роботи з модулями, класами. Навіть є можливість створювати абстрактні класи.
+                TypeScript назад сумісний із JavaScript. Будь-який код, написаний на JS буде виконано. Також можна писати змішаний код і він буде валідним.
+
+                Недоліки:
+
+                Наявність додаткових файлів (*.ts, *.d.ts, *.map), що є незручним для невеликих проектів.
+                Для деяких браузерів потрібне додаткове налаштування консолі для налагодження TypeScript.
+                TypeScript - мова з неявною статичною типізацією: тип може бути описаний як any, що відключить приведення до цього типу змінної.
+                d.ts декларації не завжди відповідають поточній версії бібліотеки.
+
+                У цілому нині — TypeScript відмінний вибір великих проектів, оскільки написання займає більше часу через описи декларацій класів і методів. Без статичної типізації в JavaScript, TypeScript — відмінне рішення. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> У чому різниця між mutable та immutable об'єктами? Наведіть приклад immutable об'єкта в JS.</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Immutable об'єкт - незмінний. Об'єкт, стан якого не може бути змінено після створення. Відповідно, mutable об'єкт може бути змінений після створення. Усі примітиви (числа, рядки, булеві значення тощо) є імутабельними.
+
+                23) Які переваги та недоліки незмінності (immutability) ви можете виділити?
+
+                Переваги незмінності:
+
+                Просте та швидке відстеження змін (наприклад, не потрібно окремо порівнювати значення кожного поля вкладеного об'єкта. Можна просто порівняти посилання на об'єкти та відсіяти вкладені гілки порівнянь).
+                Більш безпечне використання та тестування.
+
+                Недоліки:
+
+                Створення нового об'єкта за кожної зміни може стати ресурсно-затратною операцією.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Як ви можете досягти незмінності (immutability) у власному коді?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Використання методу Object.freeze() запобігає зміні об'єкта: додавання, видалення або зміна властивостей. Використання ключового слова const замість var або let не робить константу незмінною, проте запобігає повторному присвоюванню нового значення.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Опишіть різницю між синхронними та асинхронними функціями </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Синхронні функції - виконуються в порядку, в якому вони написані в тексті, по черзі.
+                Асинхронні функції - виконуються відкладено, потрапляючи перед виконанням у чергу, що дозволяє виконати їх, не блокуючи основний потік.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Що таке цикл подій (event loop) у JS? Яка різниця між «стеком викликів» (call stack) та «чергою завдань» (task queue)?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Task queue - черга із завершених асинхронних завдань, готових до синхронної обробки. З цієї черги завдання будуть поступово переміщені до call stack.
+                Call Stack — стек викликів за яким можна визначити, в якому місці програми зараз йде її обробка. Якщо стек не порожній, це означає виконання синхронних завдань, а саме, функції, яка знаходиться на верхівці стека.
+                Event loop — механізм, що переміщує готові до синхронної обробки асинхронні завдання з task queue в call stack. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> У чому полягає різниця між змінними, створеними з допомогою let, var чи const? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> const — змінним, оголошеним цим оператором, має бути одразу надано значення. Надалі значення може бути перевизначено. Змінна, оголошена в такий спосіб, не буде видно за межами блокової області видимості.
+                let — значення змінної, оголошеної цим оператором, може бути встановлене пізніше, а також може бути перевизначено в майбутньому. Змінну, оголошену в такий спосіб, не буде видно за межами блокової області видимості. Не доступний hoisting. Не підтримує повторне оголошення.
+
+                var — значення змінної, оголошеної цим оператором, може бути встановлене пізніше, а так само може бути перевизначене в майбутньому. Змінна, оголошена у такий спосіб, видно за межами блокової області видимості. Доступний hoisting. Підтримує повторне оголошення.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> У чому різниця між класом ES6 і конструктором функцій ES5? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Методи класу є неперелічуваними властивостями;
+                Код усередині класу за замовчуванням обробляється у строгому режимі;
+                Є розбіжності у синтаксисі; </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Чи можете ви назвати випадок у якому найбільш доречне застосування стрілкової функції? Чим цей тип функцій відрізняється від інших?</h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Стрілкові функції оголошуються особливою комбінацією символів () => {}. Мабуть, найбільш доречним варіантом застосування стрілкової функції є застосування її як callback функції. Це пояснюється основною відмінністю її від інших типів функцій - контекст виконання стрілкових функцій визначається не в момент виклику, а в момент оголошення (лексичний this).
+
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Що таке функція вищого порядку? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Функція вищого порядку - функція яка приймає як аргумент іншу функцію або повертає функцію, тобто працює з іншими функціями.
+                Array.prototype.reduce, Array.prototype.map та Array.prototype.filter – це функції вищого порядку.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Наведіть приклад деструктуруючого присвоєння (destructuring assignment) об'єкта чи масиву </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Destructuring assignment - механізм вилучення даних з масивів та об'єктів. При цьому використовуються літерали масиву або об'єкта (залежно від того, що розуміємо), що збільшує читабельність і дозволяє відразу сказати об'єкт якого типу деструктурується. Наприклад:
+
+
+                var [firstItem] = arr;
+
+
+
+                По квадратних дужках відразу видно, що arr це масив </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">Наведіть приклад генерації рядка за допомогою шаблонного рядка ES6. </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Шаблонний рядок - рядковий літерал, що дозволяє використовувати вирази всередині рядка. Оголошується косими лапками.
+
+
+                const variable = 'World!'
+                console.log(`Hello ${variable}`);
+
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn">  Що таке каррування в JS? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Каррування (currying) - перетворення функцій з безліччю аргументів на набір вкладених функцій з одним аргументом. Після виклику такої функції з передачею їй аргументу, вона повертає нову функцію, яка чекає на наступний аргумент і так до отримання результату. </p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="btn" >
+            <i class="fa-solid fa-lock"></i>
+            <h4 class="titleBtn"> Які переваги використання spread syntax і чим він відрізняється від rest syntax? </h4>
+        </div>
+
+        <div class="answer answer_hidden" >
+
+            <p> Spread — оператор, що складається з трьох точок. Перевага – у короткій формі запису. Відмінність — залежно від місця застосування цей оператор сприймається як spread чи rest оператор. Rest використовується для деструктуризації колекцій (поділ на окремі елементи), а spread, навпаки, для з'єднання окремих значень масиву.
+
+
+                let arr = ['one', 'two', 'three', 'four'];
+                // деструктуризація трьома точками (rest)
+                let [first, second, ...rest] = arr;
+                console.log(first); // 'one'
+                console.log(second); // 'two'
+                console.log(rest); // ['three', 'four']
+                // об'єднання трьома точками. Схожий синтаксис, але поведінка інша
+                const restored = [first, second, ...rest];
+                console.log(restored) //['one', 'two', 'three', 'four'];
+            </p>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

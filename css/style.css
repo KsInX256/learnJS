@@ -1,0 +1,334 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-width: auto;          /* "auto" или "thin" */
+    scrollbar-color: #00ffff #213434;   /* цвет бегунка и зоны отслеживания */
+}
+
+body{
+    background-color: #010911;
+
+}
+
+.container{
+    margin: auto;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    max-width: 800px;
+    max-height: 1400px;
+    padding: 10px;
+    background-color: #010911;
+    color: #ffffff;
+    /*overflow: hidden;*/
+}
+
+.layers{
+    perspective: 1000px;
+}
+
+.layersContainer{
+    margin: 20px 0;
+    height: max(30vh);
+    transform-style: flat;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+}
+
+.layersItem{
+    position: absolute;
+    inset: -2vw;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.layer-1 {
+    zoom: 200%;
+    transform: scale(-1, 1)
+}
+
+
+.layer-3 {
+    transform: scale(-1,1) ;
+}
+
+
+.overview{
+    display: inline-block;
+    position: relative;
+    top: 30%;
+    text-align: center;
+    padding: 12px;
+    font-size: 20px;
+    color: #a2ecec;
+    border: rgba(162, 236, 236, 80%) dashed 3px;
+    border-radius: 2px;
+    margin: 0 40px 20px 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.overview:hover {
+    position: relative;
+    top: 30%;
+    margin: 0 40px 20px 40px;
+    padding: 12px;
+    font-size: 20px;
+    text-align: center;
+    border: rgb(154, 103, 201) solid 3px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #d200ff;
+    box-shadow: 0 0 3px 1px #d200ff;
+    transition: all .2s linear .1s;
+}
+
+.accordion {
+    position: relative;
+    z-index: 0;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-align: left;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 800px;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #a2ecec;
+    margin: 15px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: #213434;
+    cursor: pointer;
+    opacity: 0.95;
+
+}
+
+.btn:hover {
+    max-width: 800px;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: bolder;
+    font-size: 14px;
+    background-color: #a2ecec;
+    margin: 15px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    opacity: 0.95;
+    box-shadow:  0 0 4px 2px #d200ff;
+    transition: all .2s linear .1s;
+    cursor: pointer;
+
+}
+
+
+.answer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 300;
+    padding: 18px;
+    margin: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    border: rgb(0, 255, 217) solid 1px;
+    border-radius: 3px;
+    background-color: #151d23;
+    box-shadow:  0 0 15px 0 #00ffff;
+    transition: all .3s linear 0s;
+    perspective: 80px;
+}
+
+ .answer_hidden {
+ display: none;
+}
+
+
+.fa-lock {
+    cursor: pointer;
+    background-color: #a2ecec;
+    font-size: smaller;
+    margin: 3px;
+}
+
+.fa-lock:hover{
+    color: #d200ff;
+    font-size: smaller;
+    transition: all .3s linear 0s;
+    cursor: pointer;
+    margin: 3px;
+
+}
+.fa-unlock-keyhole {
+    background-color: #a2ecec;
+    font-size: smaller;
+    color: #d200ff;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.titleBtn {
+    display: inline-flex;
+    align-items: stretch;
+    background-color: #a2ecec;
+    cursor: pointer;
+}
+
+
+.modalBg{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(14, 11, 11, 0.95);
+    z-index: 1;
+}
+
+.modalWindow{
+    font-family: 'Advent Pro', sans-serif;
+    max-width: 600px;
+    border-radius: 5px;
+    margin: 100px auto;
+    box-shadow: 0 0 50px 0 #000000;
+    color: #a2ecec;
+    position: relative;
+    z-index: 2;
+
+}
+
+.mHeader{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: #a2ecec;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px dashed rgba(0, 255, 217, 0.8);
+}
+
+.mTittle{
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #a2ecec;
+    color: #213434 ;
+    padding: 3px;
+
+}
+
+.mCloseButton{
+    color: #151d23;
+    cursor: pointer;
+}
+
+.mCloseButton:hover{
+    color: #9208b2;
+}
+
+.mBody{
+    font-family: 'Advent Pro', sans-serif;
+    text-align: center;
+    background-color: #151d23;
+}
+
+.mBody > p {
+    padding: 15px;
+    margin: auto;
+}
+.mFooter{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #151d23;
+}
+
+.modalBtn{
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    background-color: rgba(162, 236, 236, 0.9);
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 2px;
+    color: #151d23;
+    cursor: pointer;
+}
+
+.modalBtn:hover{
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    background-color: rgba(162, 236, 236, 0.9);
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 2px;
+    color: #151d23;
+    cursor: pointer;
+    box-shadow:  0 0 10px 0 #00ffff;
+    transition: all .2s linear 0s;
+    perspective: 80px;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+    background: #213434;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #00ffff;
+    border-radius: 20px;
+    border: 3px solid #213434;
+}
+
+
+.goToTop {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    animation: 1s show ease;
+    transition-delay: 0.3s;
+}
+
+.goToTop .fa-solid{
+    cursor: pointer;
+    color: #ffffff;
+    margin: 10px;
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+}
+
+
+
+
+
+/*
+как сбросить стиль кнопки
+клик по полю - закрывает попапы
+шапка адаптив не уменьшается
+
+шапка попапа - крестик и текст не по центру, сделать ротейт крестика при наведении
+
+*/
