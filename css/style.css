@@ -2,8 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    scrollbar-width: auto;          /* "auto" или "thin" */
-    scrollbar-color: #00ffff #213434;   /* цвет бегунка и зоны отслеживания */
+    scrollbar-width: auto;         
+    scrollbar-color: #00ffff #213434;  
 }
 
 body{
@@ -71,7 +71,7 @@ body{
 .overview:hover {
     position: relative;
     top: 30%;
-    margin: 0 40px 20px 40px;
+/*     margin: 0 40px 20px 40px; */
     padding: 12px;
     font-size: 20px;
     text-align: center;
@@ -81,6 +81,8 @@ body{
     color: #d200ff;
     box-shadow: 0 0 3px 1px #d200ff;
     transition: all .2s linear .1s;
+    animation: 1s show ease;
+    transition-delay: 0.3s;
 }
 
 .accordion {
@@ -284,7 +286,7 @@ body{
 }
 
 body::-webkit-scrollbar {
-    width: 12px;               /* ширина всей полосы прокрутки */
+    width: 12px;              
 }
 
 body::-webkit-scrollbar-track {
@@ -320,15 +322,13 @@ body::-webkit-scrollbar-thumb {
     to { opacity: 0.9; }
 }
 
+@media (max-width: 767px) {
+    .modalWindow{
+        width: 90%;
+    }
 
+    .mCloseButton{
+        font-size: larger;
+    }
 
-
-
-/*
-как сбросить стиль кнопки
-клик по полю - закрывает попапы
-шапка адаптив не уменьшается
-
-шапка попапа - крестик и текст не по центру, сделать ротейт крестика при наведении
-
-*/
+}
