@@ -6,6 +6,7 @@ const modalBtnNo = document.querySelector('#btnNo');
 const modalText = document.querySelector('.mBody > p');
 const closeButton = document.querySelector('.mCloseButton');
 const goToTop = document.querySelector('.goToTop');
+const header = document.querySelector('.header');
 
 
 goToTop.addEventListener('click', goTop);
@@ -83,11 +84,20 @@ buttons.forEach((button) => {
 })
 
 
-document.addEventListener('mousemove', (e) => {
+header.addEventListener('mousemove', (e) => {
     Object.assign(document.documentElement, {
         style: `
             --move-x: ${(e.clientX - window.innerHeight/2) * .01}deg;
             --move-y: ${(e.clientY - window.innerWidth/2) * .01}deg;
+        `
+    })
+})
+
+header.addEventListener('touchstart', (e) => {
+    Object.assign(document.documentElement, {
+        style: `
+            --move-x: ${10}deg;
+            --move-y: ${10}deg;
         `
     })
 })
